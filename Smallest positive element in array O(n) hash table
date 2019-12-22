@@ -15,4 +15,5 @@ def least(arr)
     end
     return i
 end
+
 p least([1,0,3,1,3])
