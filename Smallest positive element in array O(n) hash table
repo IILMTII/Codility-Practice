@@ -1,0 +1,18 @@
+def least(arr)
+    hash=Hash.new(0)
+    new=arr.sort()
+    new.each do |num|
+        hash[num]+=1
+    end
+    i=1
+    hash.each do |key,value|
+        if key>0 && i!=key
+            return i
+        end
+        if key>0
+        i+=1
+        end
+    end
+    return i
+end
+p least([1,0,3,1,3])
