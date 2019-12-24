@@ -1,0 +1,50 @@
+#Wriite a function solution that, given an integer N, returns the maximum possible value obtained by inserting one '5' digit 
+#inside the decimal representation of integer N. 
+def solution(n)
+    num=n
+    digits=0
+    if num==0
+        digits=1
+    end
+    while num>0
+        digits+=1
+        num/=10
+    end
+    case digits
+    when 3 
+        four=5000+n
+        three=n/100*1000+500+n%100
+        two=n/10*100+50+n%10
+        one=n*10+5
+        if four>three
+          return four 
+        elsif three>two
+          return three
+        elsif two>one
+          return two
+        else
+          return one
+        end  
+    when 2
+        three=500+n
+        two=n/10*100+50+n%10
+        one=n*10+5
+        if three>two
+          return three
+        elsif two>one
+          return two
+        else
+          return one
+        end  
+    when 1
+        two=n/10*100+50+n%10
+        one=n*10+5
+        if two>one
+          return two
+        else
+          return one
+        end  
+    end      
+end
+
+p solution(0)
